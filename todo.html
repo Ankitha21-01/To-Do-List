@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #e18383;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -16,17 +16,17 @@
         }
 
         .container {
-            background-color: white;
+            background-color: rgb(232, 169, 169);
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(59, 10, 10, 0.1);
             width: 100%;
             max-width: 400px;
         }
 
         h1 {
             text-align: center;
-            color: #333;
+            color: #5c5959;
         }
 
         .input-section {
@@ -37,21 +37,21 @@
         #task-input {
             flex: 1;
             padding: 10px;
-            border: 1px solid #ccc;
+            border: 1px solid #e1c8c8;
             border-radius: 4px 0 0 4px;
         }
 
         #add-btn {
             padding: 10px 15px;
-            background-color: #28a745;
-            color: white;
+            background-color: #0b4418;
+            color: rgb(222, 192, 192);
             border: none;
             border-radius: 0 4px 4px 0;
             cursor: pointer;
         }
 
         #add-btn:hover {
-            background-color: #218838;
+            background-color: #084515;
         }
 
         #task-list {
@@ -63,12 +63,12 @@
             display: flex;
             align-items: center;
             padding: 10px;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #ebc8c8;
         }
 
         .task-item.completed .task-text {
             text-decoration: line-through;
-            color: #888;
+            color: #a2a988;
         }
 
         .task-checkbox {
@@ -80,7 +80,7 @@
         }
 
         .delete-btn {
-            background-color: #dc3545;
+            background-color: #721903;
             color: white;
             border: none;
             padding: 5px 10px;
@@ -89,7 +89,7 @@
         }
 
         .delete-btn:hover {
-            background-color: #c82333;
+            background-color: #970412;
         }
     </style>
 </head>
@@ -98,7 +98,7 @@
         <h1>To-Do List</h1>
         <div class="input-section">
             <input type="text" id="task-input" placeholder="Enter a new task">
-            <button id="add-btn">Add Task</button>
+            <button id="add-btn">Add Your Task</button>
         </div>
         <ul id="task-list"></ul>
     </div>
@@ -108,10 +108,10 @@
             const addBtn = document.getElementById('add-btn');
             const taskList = document.getElementById('task-list');
 
-            // Load tasks from localStorage
+           
             loadTasks();
 
-            // Add task event
+          
             addBtn.addEventListener('click', addTask);
             taskInput.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') addTask();
@@ -138,14 +138,14 @@
                     <button class="delete-btn">Delete</button>
                 `;
 
-                // Toggle completed
+               
                 li.querySelector('.task-checkbox').addEventListener('change', () => {
                     task.completed = !task.completed;
                     li.classList.toggle('completed');
                     updateTasks();
                 });
 
-                // Delete task
+                
                 li.querySelector('.delete-btn').addEventListener('click', () => {
                     deleteTask(task);
                     li.remove();
